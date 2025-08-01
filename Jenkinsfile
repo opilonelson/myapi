@@ -32,7 +32,7 @@ pipeline {
         branch 'main'
       }
       steps {
-        withDockerRegistry([credentialsId: 'dockerhub-creds']) {
+        withDockerRegistry([credentialsId: 'dockerhub-creds', url: 'https://index.docker.io/v1/']) {
           script {
             docker.image(DOCKER_IMAGE).push()
           }
